@@ -1,3 +1,8 @@
+# My Ignored Files
+.env
+service_account.json
+spag-service.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
