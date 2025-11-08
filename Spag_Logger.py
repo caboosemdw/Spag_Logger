@@ -18,6 +18,7 @@ def main():
 
     load_dotenv()
     APIkey = os.getenv('API')
+    MyAPIkey = os.getenv('cabAPI')
     ServiceFile = os.getenv('SERVICE')
     Workbook = os.getenv('WB')
     MemberSheet = os.getenv('MemberDB')
@@ -25,7 +26,7 @@ def main():
 
     # Pull the API Data and Guild Rankings Data
     ssl._create_default_https_context = ssl._create_unverified_context
-    url2 = "https://lyrania.co.uk/api/rankings.php?cat=guilds"
+    url2 = "https://lyrania.co.uk/api/rankings.php?cat=guilds&api_key=" + str(MyAPIkey) #caboosemdw
     url4 = "https://lyrania.co.uk/api/guilds.php?type=all&api_code=" + str(APIkey) # Sketti
 
     response2 = urlopen(url2)
@@ -168,10 +169,10 @@ def main():
     logSheet = db.worksheet('Log')
 
     # Load the Parsed Data into the SNM Spreadsheets
-    memDB.clear_basic_filter()
-    memDB.append_rows(membersDB)
-    memDB.set_basic_filter()
-    gldDB.append_rows(guildsData)
+    # memDB.clear_basic_filter()
+    # memDB.append_rows(membersDB)
+    # memDB.set_basic_filter()
+    # gldDB.append_rows(guildsData)
     logSheet.append_row([prefix])
 
 if __name__ == '__main__':
