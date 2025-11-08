@@ -169,10 +169,10 @@ def main():
     logSheet = db.worksheet('Log')
 
     # Load the Parsed Data into the SNM Spreadsheets
-    # memDB.clear_basic_filter()
-    # memDB.append_rows(membersDB)
-    # memDB.set_basic_filter()
-    # gldDB.append_rows(guildsData)
+    memDB.clear_basic_filter()
+    memDB.append_rows(membersDB)
+    memDB.set_basic_filter()
+    gldDB.append_rows(guildsData)
     logSheet.append_row([prefix])
 
 if __name__ == '__main__':
