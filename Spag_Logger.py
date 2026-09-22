@@ -143,15 +143,15 @@ def main():
     guildMembers = []
     newData = []
     for m in membersJSON:
-        newData.append(myDate+'-'+m['id']) # unique id
+        newData.append(myDate+'-'+str(m['id'])) # unique id
         newData.append(myDate) # date
-        newData.append(int(m['id'])) # id
+        newData.append(m['id']) # id
         newData.append(m['username']) # username
         newData.append(int(m['area'])) # area
         newData.append(int(m['gdp']['dp_donated'])) # gdp
         newData.append(int(m['rp']['donated'])) # rp
         newData.append(int(m['kills']['kills'])) # kills
-        newData.append(m['id']+'-'+m['area'])
+        newData.append(str(m['id'])+'-'+str(m['area']))
         newData.append(int(m['dungeontreasury']['treasurytaxed']))
         newData.append(int(m['dungeontreasury']['treasurydonated']))
         newData.append(int(m['dungeontreasury']['treasury_payout_RP']))
