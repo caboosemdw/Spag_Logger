@@ -28,10 +28,16 @@ def main():
     ssl._create_default_https_context = ssl._create_unverified_context
     url2 = "https://lyrania.co.uk/api/rankings.php?cat=guilds&api_key=" + str(MyAPIkey) #caboosemdw
     url4 = "https://lyrania.co.uk/api/guilds.php?type=all&api_code=" + str(APIkey) # Sketti
-
-    response2 = urlopen(url2)
+    
+    headers = {
+        'User-Agent': 'curl/8.0',
+        'Accept': '*/*'
+    }
+    response2 = urlopen(Request(url2, headers=headers), timeout=30)
+    #response2 = urlopen(url2)
     guildRankings_json = json.loads(response2.read())
-    guild_response = urlopen(url4)
+    #guild_response = urlopen(url4)
+    guild_response = urlopen(Request(url4, headers=headers), timeout=30)
     guild_data_json = json.loads(guild_response.read())
 
     # Parse the API Data into what needs to be kept
